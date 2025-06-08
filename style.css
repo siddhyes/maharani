@@ -401,39 +401,6 @@ p {
     margin-bottom: 0.5rem;
 }
 
-.social-media {
-    padding: 1.5rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-media h4 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    padding: 0.5rem 1rem;
-    background: #D4AF37;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: #B8941F;
-    transform: translateY(-2px);
-}
-
 /* Contact Form */
 .contact-form {
     background: white;
@@ -548,23 +515,6 @@ p {
 
 .footer-links a:hover {
     color: #D4AF37;
-}
-
-.footer-social {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.footer-social .social-link {
-    padding: 0.5rem 1rem;
-    background: #34495e;
-    border-radius: 5px;
-    font-size: 0.9rem;
-}
-
-.footer-social .social-link:hover {
-    background: #D4AF37;
 }
 
 .footer-bottom {
@@ -716,7 +666,6 @@ a:focus {
 .room-card,
 .amenity,
 .contact-item,
-.social-link,
 .cta-button,
 .submit-btn {
     will-change: transform;
