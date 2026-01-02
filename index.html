@@ -5,89 +5,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maharani Palace - Luxury Hotel in Varanasi</title>
+    <meta name="description"
+        content="Experience unparalleled luxury at Maharani Palace, the finest boutique hotel in the spiritual heart of Varanasi.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Maharani Palace</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#rooms" class="nav-link">Rooms</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">M</div>
+            <div class="preloader-text">Maharani Palace</div>
+            <div class="preloader-bar"><span></span></div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <span class="logo-m">M</span>
+                <div class="logo-text">
+                    <span>Maharani</span>
+                    <span>Palace</span>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="tel:+919936336644" class="nav-phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91 9936336644</span>
+                </a>
+                <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20room%20at%20Maharani%20Palace"
+                    target="_blank" class="btn-book">Reserve Now</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="hero-subtitle">The Maharani Experience</span>
-            <h1>Luxury<br>Redefined</h1>
-            <p class="hero-description">
-                Immerse yourself in the timeless elegance of Varanasi.
-                Where heritage meets modern sophistication.
-            </p>
-            <a href="#rooms" class="cta-button">Explore Suites</a>
+        <div class="hero-slider">
+            <div class="slide active">
+                <img src="public/images/room-3.jpg" alt="Luxury Suite">
+            </div>
+            <div class="slide">
+                <img src="public/images/room-1.jpg" alt="Premium Room">
+            </div>
+            <div class="slide">
+                <img src="public/images/room-5.jpg" alt="Deluxe Room">
+            </div>
         </div>
-        <div class="scroll-indicator">Scroll to Discover</div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>★★★★★</span>
+                <span>Luxury Collection</span>
+            </div>
+            <h1>
+                <span class="line">Experience</span>
+                <span class="line accent">Royal Living</span>
+            </h1>
+            <p>Where ancient spirituality meets contemporary luxury in the heart of Varanasi</p>
+            <div class="hero-buttons">
+                <a href="#rooms" class="btn btn-primary">
+                    <span>Explore Rooms</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+
+        <div class="hero-features">
+            <div class="hf-item">
+                <div class="hf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <div class="hf-text">
+                    <h4>Premium Rooms</h4>
+                    <p>Luxuriously designed spaces</p>
+                </div>
+            </div>
+            <div class="hf-item">
+                <div class="hf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                </div>
+                <div class="hf-text">
+                    <h4>24/7 Service</h4>
+                    <p>Round the clock assistance</p>
+                </div>
+            </div>
+            <div class="hf-item">
+                <div class="hf-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                </div>
+                <div class="hf-text">
+                    <h4>Prime Location</h4>
+                    <p>Heart of Varanasi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <button class="slider-btn prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="slider-btn next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <a href="#about" class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </a>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Story</h2>
-                <p>Welcome to Varanasi</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>A Sanctuary of <br>Peace & Luxury</h3>
-                    <p>
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="img-wrapper main-img">
+                        <img src="public/images/room-2.jpg" alt="Hotel Interior">
+                    </div>
+                    <div class="img-wrapper secondary-img">
+                        <img src="public/images/room-4.jpg" alt="Room View">
+                    </div>
+
+                </div>
+
+                <div class="about-content">
+                    <span class="section-label">Welcome to Maharani Palace</span>
+                    <h2>A Sanctuary of <br><span class="gold">Peace & Luxury</span></h2>
+                    <p class="lead">
                         Nestled in the spiritual heart of India, Maharani Palace is more than just a hotel—it is a
-                        destination.
+                        destination where heritage meets modern sophistication.
                     </p>
                     <p>
-                        We have reimagined the traditional stay, offering a seamless blend of old-world charm and
-                        contemporary design.
+                        Our meticulously designed rooms feature contemporary amenities while preserving the essence of
+                        traditional Indian hospitality. Every detail is crafted to ensure your stay is nothing short of
+                        extraordinary.
                     </p>
-                    <div class="amenities">
-                        <div class="amenity">
-                            <h4>Concierge Service</h4>
+
+                    <div class="about-features">
+                        <div class="af-item">
+                            <div class="af-icon">✓</div>
+                            <span>AC Rooms with Modern Amenities</span>
                         </div>
-                        <div class="amenity">
-                            <h4>Fine Dining</h4>
+                        <div class="af-item">
+                            <div class="af-icon">✓</div>
+                            <span>Complimentary Breakfast</span>
                         </div>
-                        <div class="amenity">
-                            <h4>Spa & Wellness</h4>
+                        <div class="af-item">
+                            <div class="af-icon">✓</div>
+                            <span>24/7 Room Service</span>
+                        </div>
+                        <div class="af-item">
+                            <div class="af-icon">✓</div>
+                            <span>Free High-Speed WiFi</span>
                         </div>
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg" alt="Hotel Lobby">
+
+                    <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20room%20at%20Maharani%20Palace"
+                        target="_blank" class="btn btn-primary">
+                        <span>Book Your Stay</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -95,51 +223,181 @@
 
     <!-- Rooms Section -->
     <section id="rooms" class="rooms">
+        <div class="rooms-bg"></div>
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Our Accommodations</span>
+                <h2>Luxurious <span class="gold">Rooms</span></h2>
+                <p>Each room is thoughtfully designed to provide ultimate comfort and elegance</p>
+            </div>
+
+            <div class="rooms-showcase">
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="public/images/room-1.jpg" alt="Deluxe Room">
+                        <div class="room-tag">Popular</div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Deluxe Room</h3>
+                        <p>Spacious rooms with modern amenities, perfect for couples and solo travelers.</p>
+                        <div class="room-amenities">
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path d="M19 7h-8v8H3V7H1v10h2v-2h18v2h2V7h-4zm2-2v2H3V5h18z" />
+                                </svg> King Bed</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22v-2z" />
+                                </svg> AC</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z" />
+                                </svg> Smart TV</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+                                </svg> WiFi</span>
+                        </div>
+                        <div class="room-footer">
+                            <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20the%20Deluxe%20Room%20at%20Maharani%20Palace"
+                                target="_blank" class="btn btn-gold">Book on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card featured">
+                    <div class="room-image">
+                        <img src="public/images/room-3.jpg" alt="Premium Room">
+                        <div class="room-tag gold">Best Value</div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Premium Room</h3>
+                        <p>Our signature rooms featuring enhanced space and premium comfort for an elevated experience.
+                        </p>
+                        <div class="room-amenities">
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path d="M19 7h-8v8H3V7H1v10h2v-2h18v2h2V7h-4zm2-2v2H3V5h18z" />
+                                </svg> King Bed</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22v-2z" />
+                                </svg> AC</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z" />
+                                </svg> 55" TV</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+                                </svg> WiFi</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M18.36 9l.6 3H5.04l.6-3h12.72M20 4H4v2h16V4zm0 3H4l-1 5v2h1v6h10v-6h4v6h2v-6h1v-2l-1-5zM6 18v-4h6v4H6z" />
+                                </svg> Minibar</span>
+                        </div>
+                        <div class="room-footer">
+                            <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20the%20Premium%20Room%20at%20Maharani%20Palace"
+                                target="_blank" class="btn btn-gold">Book on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="public/images/room-5.jpg" alt="Royal Suite">
+                    </div>
+                    <div class="room-info">
+                        <h3>Royal Suite</h3>
+                        <p>Experience royalty with our spacious suites featuring premium décor and exclusive services.
+                        </p>
+                        <div class="room-amenities">
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path d="M19 7h-8v8H3V7H1v10h2v-2h18v2h2V7h-4zm2-2v2H3V5h18z" />
+                                </svg> Super King</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22v-2z" />
+                                </svg> AC</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12z" />
+                                </svg> 65" TV</span>
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" width="16">
+                                    <path
+                                        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                                </svg> Breakfast</span>
+                        </div>
+                        <div class="room-footer">
+                            <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20the%20Royal%20Suite%20at%20Maharani%20Palace"
+                                target="_blank" class="btn btn-gold">Book on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
         <div class="container">
             <div class="section-header">
-                <h2>Our Accommodations</h2>
-                <p>Comfort and Elegance in Every Detail</p>
+                <span class="section-label light">Photo Gallery</span>
+                <h2>Glimpse of <span class="gold">Maharani</span></h2>
             </div>
-            <div class="rooms-grid">
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="public/images/gallery-2.jpg" alt="Standard Room">
-                        <div class="room-overlay">
-                            <h3>Standard Room</h3>
-                            <a href="#contact" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="public/images/gallery-3.jpg" alt="Deluxe Room">
-                        <div class="room-overlay">
-                            <h3>Deluxe Room</h3>
-                            <a href="#contact" class="book-btn">Book Now</a>
-                        </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gi-1">
+                    <img src="public/images/room-1.jpg" alt="Room View 1">
+                    <div class="gallery-overlay">
+                        <span>Elegant Interiors</span>
                     </div>
                 </div>
+                <div class="gallery-item gi-2">
+                    <img src="public/images/room-2.jpg" alt="Room View 2">
+                    <div class="gallery-overlay">
+                        <span>Modern Comfort</span>
+                    </div>
+                </div>
+                <div class="gallery-item gi-3">
+                    <img src="public/images/room-3.jpg" alt="Room View 3">
+                    <div class="gallery-overlay">
+                        <span>Premium Design</span>
+                    </div>
+                </div>
+                <div class="gallery-item gi-4">
+                    <img src="public/images/room-4.jpg" alt="Room View 4">
+                    <div class="gallery-overlay">
+                        <span>Cozy Ambiance</span>
+                    </div>
+                </div>
+                <div class="gallery-item gi-5">
+                    <img src="public/images/room-5.jpg" alt="Room View 5">
+                    <div class="gallery-overlay">
+                        <span>Luxurious Stay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="public/images/gallery-4.jpg" alt="Executive Suite">
-                        <div class="room-overlay">
-                            <h3>Executive Suite</h3>
-                            <a href="#contact" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="public/images/gallery-1.jpg" alt="Royal Suite">
-                        <div class="room-overlay">
-                            <h3>Royal Suite</h3>
-                            <a href="#contact" class="book-btn">Book Now</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <img src="public/images/room-3.jpg" alt="">
+        </div>
+        <div class="cta-overlay"></div>
+        <div class="cta-content">
+            <h2>Ready for an Unforgettable Stay?</h2>
+            <p>Book your room today and experience true luxury in Varanasi</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20make%20a%20reservation%20at%20Maharani%20Palace"
+                    target="_blank" class="btn btn-primary">Make a Reservation</a>
+                <a href="tel:+919936336644" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>Call Now</span>
+                </a>
             </div>
         </div>
     </section>
@@ -147,112 +405,174 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>Get in Touch for Reservations and Inquiries</p>
-            </div>
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h4>Address</h4>
-                            <p>N10/77 ARAJI NO 500, BLW ROAD<br>
-                                KAKARMATTA, VARANASI<br>
-                                Uttar Pradesh 221004, India</p>
+                    <span class="section-label">Get in Touch</span>
+                    <h2>Book Your <span class="gold">Royal Stay</span></h2>
+                    <p>Our team is ready to assist you with reservations and answer any questions you may have.</p>
+
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>ARAJI NO. 500/1 N, 10/77, DLW Rd<br>MAUZA, Bajardiha, Varanasi<br>Shivdaspur, Uttar
+                                    Pradesh 221004
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+91.9936336644</p>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9936336644</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>info@maharanipalace.com</p>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="M22 6l-10 7L2 6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@maharanipalace.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+
+                <div class="whatsapp-cta">
+                    <div class="whatsapp-card">
+                        <div class="whatsapp-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
                         </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Select Inquiry Type</option>
-                                <option value="reservation">Room Reservation</option>
-                                <option value="event">Event Booking</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="feedback">Feedback</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                        <h3>Book via WhatsApp</h3>
+                        <p>For quick reservations and inquiries, message us directly on WhatsApp. We respond within
+                            minutes!</p>
+                        <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20book%20a%20room%20at%20Maharani%20Palace"
+                            target="_blank" class="btn btn-whatsapp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="map-container">
-                <h3>Find Us</h3>
-                <div class="map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4937242142194!2d82.99950431445938!3d25.31745323388097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db76febcf4d%3A0x31d9c2c5f6a6b6e2!2sKakarmatta%2C%20Varanasi%2C%20Uttar%20Pradesh%20221004!5e0!3m2!1sen!2sin!4v1697000000000!5m2!1sen!2sin"
-                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+        </div>
+
+        <div class="map-container">
+            <a href="https://maps.app.goo.gl/qWWxfwuTrKZyZ1758" target="_blank" class="map-link">
+                <div class="map-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48"
+                        height="48">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <h3>View on Google Maps</h3>
+                    <p>ARAJI NO. 500/1 N, 10/77, DLW Rd, MAUZA, Bajardiha, Varanasi, Shivdaspur, UP 221004</p>
+                    <span class="map-btn">Open in Maps →</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Maharani Palace</h3>
-                    <p>Experience luxury and comfort in the spiritual heart of Varanasi.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#rooms">Rooms</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Room Service</a></li>
-                        <li><a href="#">Airport Transfer</a></li>
-                        <li><a href="#">Event Planning</a></li>
-                        <li><a href="#">Tourist Guide</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>📍 Kakarmatta, Varanasi<br>Uttar Pradesh 221004</p>
-                    <p>📞 +91.9936336644</p>
-                    <p>✉️ info@maharanipalace.com</p>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#home" class="footer-logo">
+                            <span class="logo-m">M</span>
+                            <div class="logo-text">
+                                <span>Maharani</span>
+                                <span>Palace</span>
+                            </div>
+                        </a>
+                        <p>Experience the pinnacle of luxury hospitality in the spiritual heart of Varanasi. Your
+                            comfort, our commitment.</p>
+                        <div class="social-links">
+                            <a href="https://www.google.com/search?q=Hotel+Maharani+Palace+Varanasi" target="_blank"
+                                aria-label="Google">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                    <path
+                                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                    <path
+                                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                    <path
+                                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/919936336644?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Maharani%20Palace"
+                                target="_blank" aria-label="WhatsApp">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#rooms">Our Rooms</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Room Service</a></li>
+
+                            <li><a href="#">Event Booking</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            <strong>Address:</strong><br>
+                            ARAJI NO. 500/1 N, 10/77, DLW Rd<br>
+                            MAUZA, Bajardiha, Varanasi<br>
+                            Shivdaspur, UP 221004
+                        </p>
+                        <p><strong>Phone:</strong> +91 9936336644</p>
+                        <p><strong>Email:</strong> info@maharanipalace.com</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Maharani Palace. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Maharani Palace. All Rights Reserved.</p>
+                <p>Designed with ❤️ for Luxury Travelers</p>
             </div>
         </div>
     </footer>

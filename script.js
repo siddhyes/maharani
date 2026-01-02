@@ -1,110 +1,383 @@
-// Ultra-Modern Interactions
+// ============================================
+// MAHARANI PALACE - INTERACTIONS v2
+// ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Navigation Scroll Effect
-    const navbar = document.querySelector('.navbar');
+    // ============================================
+    // PRELOADER
+    // ============================================
+    const preloader = document.getElementById('preloader');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 1800);
     });
 
-    // 2. Mobile Menu Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    // Fallback - hide preloader after 3 seconds max
+    setTimeout(() => {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
+        }
+    }, 3000);
 
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    const header = document.querySelector('.header');
+    let lastScrollY = 0;
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+
+        // Add scrolled class after 50px
+        if (currentScrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check on load
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     }
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
-
-    // 3. Smooth Scrolling
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                e.preventDefault();
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
 
-    // 4. Scroll Reveal Animation
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+    // ============================================
+    // HERO SLIDER
+    // ============================================
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    const showSlide = (index) => {
+        // Wrap around
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+
+        // Update slides
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+
+        currentSlide = index;
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const nextSlide = () => showSlide(currentSlide + 1);
+    const prevSlide = () => showSlide(currentSlide - 1);
+
+    // Auto-play
+    const startAutoPlay = () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    };
+
+    const stopAutoPlay = () => {
+        clearInterval(slideInterval);
+    };
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            stopAutoPlay();
+            showSlide(i);
+            startAutoPlay();
+        });
+    });
+
+    // Start slider
+    if (slides.length > 0) {
+        startAutoPlay();
+    }
+
+    // ============================================
+    // SCROLL ANIMATIONS
+    // ============================================
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    };
+
+    const fadeUpObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                fadeUpObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll(
-        '.section-header, .about-text, .about-image, .room-card, .contact-content'
+    const animateElements = document.querySelectorAll(
+        '.section-label, .section-header h2, .about-features .af-item, ' +
+        '.room-card, .gallery-item, .info-card, .footer-brand, .footer-links, .footer-contact'
     );
 
-    animatedElements.forEach((el, index) => {
-        el.classList.add('fade-up-element');
-        // Add staggering delay via inline style if needed, or just let natural scroll handle it
-        observer.observe(el);
+    animateElements.forEach((el, index) => {
+        el.classList.add('fade-up');
+        el.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        fadeUpObserver.observe(el);
     });
 
-    // 5. Drag to Scroll for Rooms (Horizontal)
-    const slider = document.querySelector('.rooms-grid');
-    if (slider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
 
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
+    // ============================================
+    // PARALLAX EFFECT ON HERO
+    // ============================================
+    const heroSlider = document.querySelector('.hero-slider');
 
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
+    if (heroSlider) {
+        let ticking = false;
 
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.scrollY;
+                    const heroHeight = document.querySelector('.hero').offsetHeight;
 
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll-fast
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // Initial Cursor
-        slider.style.cursor = 'grab';
+                    if (scrolled < heroHeight) {
+                        const parallaxValue = scrolled * 0.4;
+                        heroSlider.style.transform = `translateY(${parallaxValue}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
+
+    // ============================================
+    // FORM HANDLING
+    // ============================================
+    const form = document.getElementById('reservationForm');
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('.btn-submit');
+            const originalContent = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = '<span>Sending...</span>';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>✓ Thank you! We\'ll contact you soon.</span>';
+                submitBtn.style.background = '#27ae60';
+
+                // Reset form
+                setTimeout(() => {
+                    form.reset();
+                    submitBtn.innerHTML = originalContent;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3500);
+            }, 1500);
+        });
+
+        // Set minimum date for check-in to today
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+
+        if (checkinInput) {
+            const today = new Date().toISOString().split('T')[0];
+            checkinInput.min = today;
+
+            checkinInput.addEventListener('change', () => {
+                if (checkoutInput) {
+                    checkoutInput.min = checkinInput.value;
+                    if (checkoutInput.value && checkoutInput.value < checkinInput.value) {
+                        checkoutInput.value = '';
+                    }
+                }
+            });
+        }
+    }
+
+    // ============================================
+    // IMAGE LOADING ENHANCEMENT
+    // ============================================
+    const images = document.querySelectorAll('img');
+
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+        }
+    });
+
+    // ============================================
+    // GALLERY HOVER EFFECT
+    // ============================================
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            galleryItems.forEach(other => {
+                if (other !== this) {
+                    other.style.opacity = '0.6';
+                }
+            });
+        });
+
+        item.addEventListener('mouseleave', () => {
+            galleryItems.forEach(other => {
+                other.style.opacity = '1';
+            });
+        });
+    });
+
+    // ============================================
+    // ROOM CARDS HOVER EFFECT
+    // ============================================
+    const roomCards = document.querySelectorAll('.room-card');
+
+    roomCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            roomCards.forEach(other => {
+                if (other !== this) {
+                    other.style.opacity = '0.7';
+                    other.style.transform = 'scale(0.98)';
+                }
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            roomCards.forEach(other => {
+                other.style.opacity = '1';
+                other.style.transform = '';
+            });
+        });
+    });
+
+    // ============================================
+    // CURRENT YEAR
+    // ============================================
+    const footerYear = document.querySelector('.footer-bottom p');
+    if (footerYear) {
+        const currentYear = new Date().getFullYear();
+        footerYear.innerHTML = footerYear.innerHTML.replace('2024', currentYear);
+    }
+
+    // ============================================
+    // LAZY LOADING FOR PERFORMANCE
+    // ============================================
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+
+    // ============================================
+    // PHONE NUMBER CLICK TRACKING
+    // ============================================
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    phoneLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            console.log('Phone number clicked:', link.href);
+            // Add analytics tracking here if needed
+        });
+    });
+
+    // ============================================
+    // CONSOLE BRANDING
+    // ============================================
+    console.log('%c🏰 Maharani Palace', 'font-size: 24px; font-weight: bold; color: #C9A962;');
+    console.log('%cLuxury Hotel in Varanasi', 'font-size: 14px; color: #666;');
+    console.log('%cWhere Royalty Lives', 'font-size: 12px; color: #999; font-style: italic;');
 
 });
