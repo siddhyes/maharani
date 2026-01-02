@@ -1,4 +1,4 @@
-// Premium Interactions
+// Ultra-Modern Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -46,9 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Scroll Reveal Animation using Intersection Observer
+    // 4. Scroll Reveal Animation
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -61,50 +61,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll('.section-header, .about-content, .room-card, .gallery-item, .contact-content');
+    const animatedElements = document.querySelectorAll(
+        '.section-header, .about-text, .about-image, .room-card, .contact-content'
+    );
 
-    animatedElements.forEach(el => {
+    animatedElements.forEach((el, index) => {
         el.classList.add('fade-up-element');
+        // Add staggering delay via inline style if needed, or just let natural scroll handle it
         observer.observe(el);
     });
 
-    // 5. Gallery Lightbox
-    const galleryItems = document.querySelectorAll('.gallery-item img');
+    // 5. Drag to Scroll for Rooms (Horizontal)
+    const slider = document.querySelector('.rooms-grid');
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-    // Create lightbox elements
-    const lightbox = document.createElement('div');
-    lightbox.id = 'lightbox';
-    lightbox.className = 'lightbox';
-    const lightboxImg = document.createElement('img');
-    const closeBtn = document.createElement('span');
-    closeBtn.className = 'lightbox-close';
-    closeBtn.innerHTML = '&times;';
-
-    lightbox.appendChild(lightboxImg);
-    lightbox.appendChild(closeBtn);
-    document.body.appendChild(lightbox);
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            lightbox.classList.add('active');
-            lightboxImg.src = item.src;
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
         });
-    });
 
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-    };
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
 
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Initial Cursor
+        slider.style.cursor = 'grab';
+    }
 
 });
