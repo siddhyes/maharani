@@ -1957,3 +1957,152 @@ textarea:focus-visible {
         max-width: 100%;
     }
 }
+
+/* ============================================
+   BOOKING MODAL
+   ============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 15vh auto;
+    padding: 0;
+    border: 1px solid var(--gold);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    color: var(--gray);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--gold);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    background: var(--charcoal);
+    padding: 30px 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--gold);
+}
+
+.modal-header h2 {
+    color: var(--white);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.modal-header p {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.booking-options {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.booking-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.booking-btn:hover svg {
+    transform: translateX(5px);
+}
+
+/* MakeMyTrip Button Style */
+.mmt-btn {
+    background: linear-gradient(90deg, #c31a28 0%, #e21e2c 100%);
+    color: white;
+    border: none;
+}
+
+.mmt-btn:hover {
+    background: linear-gradient(90deg, #a71522 0%, #c31a28 100%);
+    color: white;
+}
+
+/* Goibibo Button Style */
+.goibibo-btn {
+    background: linear-gradient(90deg, #227dec 0%, #2f8eff 100%);
+    color: white;
+    border: none;
+}
+
+.goibibo-btn:hover {
+    background: linear-gradient(90deg, #1865c4 0%, #227dec 100%);
+    color: white;
+}
+
+/* Expedia Button Style */
+.expedia-btn {
+    background: linear-gradient(90deg, #FFC107 0%, #FF9800 100%);
+    color: var(--black);
+    border: none;
+}
+
+.expedia-btn:hover {
+    background: linear-gradient(90deg, #FF9800 0%, #FFC107 100%);
+    color: var(--black);
+}

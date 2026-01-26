@@ -380,4 +380,64 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%cLuxury Hotel in Varanasi', 'font-size: 14px; color: #666;');
     console.log('%cWhere Royalty Lives', 'font-size: 12px; color: #999; font-style: italic;');
 
+    // ============================================
+    // BOOKING MODAL
+    // ============================================
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = document.querySelector('.close-modal');
+    const modalTriggers = document.querySelectorAll('.open-booking-modal');
+
+    // Function to open modal
+    const openModal = (e) => {
+        if (e) e.preventDefault();
+        modal.style.display = 'block';
+        // Small delay to allow display:block to apply before adding opacity class for transition
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    };
+
+    // Function to close modal
+    const closeModal = () => {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300); // Wait for transition
+    };
+
+    // Event listeners for triggers
+    // Note: Triggers are added via class in HTML, but we also handle dynamic adding if needed
+    // This part handles existing elements with the class
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openModal);
+    });
+
+    // We also delegate for potential dynamically added elements or if we can't easily select all
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.open-booking-modal')) {
+            openModal(e);
+        }
+    });
+
+    // Close button event
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close on click outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
 });
